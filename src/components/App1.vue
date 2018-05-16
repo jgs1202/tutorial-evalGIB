@@ -4,7 +4,8 @@
     <el-container>
       <el-aside width='20%'>
         <div class='text'>
-          How many boxes are displayed?<br>
+          How many boxes are displayed?<br><br>
+          グループの数はいくつでしょう？
         </div>
         <div class="controls">
           <br>

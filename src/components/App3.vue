@@ -4,7 +4,8 @@
     <el-container>
       <el-aside width='20%'>
         <div class='text'>
-          Which box does have the most inner links?<br>
+          Which box does have the most intra-links?<br><br>
+          グループ内リングか一番多いものを選んでください。
         </div>
         <div class="controls">
           <br>
@@ -62,9 +63,10 @@ export default {
     var that = this;
     that.dataNum = that.$parent.num3
     if (that.$parent.num3 >= that.dataMax){
-      if (that.$parent.num3 >= that.dataMax*3){
+      if (Math.floor(that.$parent.num3 / that.dataMax) % 2 == 1){
         var txt = document.getElementsByClassName('text')
-        txt[0].firstChild.data = 'Which box does have the least inner links?'
+        txt[0].firstChild.data = 'Which box does have the least intra-links?'
+        txt[0].childNodes[3].data = 'グループ内リンクが一番少ないBOXを選んでください。'
       }
       that.dataArray = that.$parent.set3
     } else {
@@ -153,7 +155,7 @@ export default {
         // console.log(that.graph)
         var ans = 0
         if (that.choice.length == 1) {
-          if (that.dataNum < that.dataMax*2) {
+          if (Math.floor(that.$parent.num3 / that.dataMax) % 2 == 0) {
             ans = that.graph.linkMax
             if (that.choice[0] == that.graph.linkMax){
               that.answer = 1

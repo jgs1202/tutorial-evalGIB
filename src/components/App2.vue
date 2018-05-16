@@ -4,7 +4,8 @@
     <el-container>
       <el-aside width='20%'>
         <div class='text'>
-          Which is the largest box?<br>
+          Which is the largest box?<br><br>
+          一番大きいBOXを選んでください。
         </div>
         <div class="controls">
           <br>
@@ -17,7 +18,7 @@
           <svg id="svg" pointer-events="all" viewBox="0 0 960 600" preserveAspectRatio="xMinYMin meet">
       <g id="nodes">{{nodes}}</g>
       <g id="links">{{links}}</g>
-      <g id='boxes'>{{boxes}}</g>
+      <g id='boxes'>{boxes}}</g>
     </svg>
         </div>
       </el-main>
@@ -62,9 +63,10 @@ export default {
     var that = this;
     that.dataNum = that.$parent.num2
     if (that.$parent.num2 >= that.dataMax){
-      if (that.$parent.num2 >= that.dataMax*3){
+      if (Math.floor(that.$parent.num2 / that.dataMax) % 2 == 1){
         var txt = document.getElementsByClassName('text')
         txt[0].firstChild.data = 'Which is the smallest box?'
+        txt[0].childNodes[3].data = '一番小さいBOXを選んでください。'
       }
       that.dataArray = that.$parent.set2
     } else {
@@ -153,7 +155,7 @@ export default {
         var ans = 0
         // console.log(that.graph)
         if (that.choice.length == 1) {
-          if (that.dataNum < that.dataMax*3) {
+          if (Math.floor(that.$parent.num2 / that.dataMax) % 2 == 0) {
             ans = that.graph.nodeMax
             if (that.choice[0] == that.graph.nodeMax){
               that.answer = 1

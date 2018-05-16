@@ -4,7 +4,8 @@
     <el-container>
       <el-aside width='20%'>
         <div class='text'>
-          Which boxes do have inter links between themselves?<br>
+          Which box is with the most inter links?<br><br>
+          最も多くのグループ間リンクを持つBOXを選んでください。
         </div>
         <div class="controls">
           <br>
